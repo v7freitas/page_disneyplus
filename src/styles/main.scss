@@ -24,19 +24,19 @@ body {
   font-family: Avenir, sans-serif;
 }
 
-@mixin text($fontSize: 16px) {
+@mixin text($fontSize: 12px) {
   font-size: $fontSize;
   line-height: $fontSize + 10px;
   color: variaveis.$corTextoPrincipal;
 }
 
-@mixin title($fontSize: 40px) {
+@mixin title($fontSize: 32px) {
   @include text($fontSize);
   color: variaveis.$corTextoSecundario;
 }
 
 .title--big {
-  @include title(44px);
+  @include title(36px);
 }
 
 .title {
@@ -44,11 +44,11 @@ body {
 }
 
 .title--small {
-  @include title(28px);
+  @include title(20px);
 }
 
 .text--big {
-  @include text(18px);
+  @include text(14px);
 }
 
 .text {
@@ -56,11 +56,11 @@ body {
 }
 
 .text--small {
-  @include text(12px);
+  @include text(8px);
 }
 
 .link-text {
-  @include text(18px);
+  @include text(14px);
   color: variaveis.$corTextoSecundario;
   text-decoration: underline;
 }
