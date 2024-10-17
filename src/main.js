@@ -3,6 +3,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const questions = document.querySelectorAll("[data-faq-question]");
 
+  const heroSection = document.querySelector(".hero");
+  const heightHero = heroSection.clientHeight;
+
+  window.addEventListener("scroll", function () {
+    const currentPosition = window.scrollY;
+
+    if (currentPosition < heightHero) {
+      hiddeHeaderElement();
+    } else {
+      showHeaderElement();
+    }
+  });
+
+  //Seção de atrações, programação das abas
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function (button) {
       const tabTarget = button.target.dataset.tabButton;
@@ -14,10 +28,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //Seção FAQ, accordion
   for (let i = 0; i < questions.length; i++) {
     questions[i].addEventListener("click", openOrCloseAnswer);
   }
 });
+
+function hiddeHeaderElement() {
+  const header = document.querySelector(".header");
+  header.classList.add("header--is--hidden");
+}
+
+function showHeaderElement() {
+  const header = document.querySelector(".header");
+  header.classList.remove("header--is--hidden");
+}
 
 function openOrCloseAnswer(element) {
   const classType = "faq__questions__item--is--open";
